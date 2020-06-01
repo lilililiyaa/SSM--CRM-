@@ -14,4 +14,9 @@ public class UserMapperImpl implements UserService{
     public User login(User user) {
         return userMapper.findUserByuNamePwd(user);
     }
+
+    @Override
+    public int findUserId(String uname) {
+        return userMapper.findUserId(uname);
+    }
 }

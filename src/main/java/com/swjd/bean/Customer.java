@@ -17,6 +17,7 @@ public class Customer {
     private String customerAddress;//客户住址
     private String customerDate;//创建日期
 
+
     public Customer() {
     }
 

@@ -51,7 +51,7 @@ public class UserController {
     //去main.jsp-测试拦截器1·
     @RequestMapping("/toMain")
     public String toMain(){
-        return "main";
+        return "mains";
     }
 
     //退出账户

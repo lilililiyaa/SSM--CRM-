@@ -88,4 +88,30 @@
             <![CDATA[ and customerDate<=#{map.customerDateEnd}]]>
         </if>
     </select>
+
+    <insert id="addCustomer">
+        insert into customer values (null ,#{customerName},#{customerUserId},
+        #{customerCreateId},#{customerSourse},#{customerIndustry},#{customerPhone},
+        #{customerAddress},#{customerDate})
+    </insert>
+    <delete id="deleteCustomer"></delete>
+
+    <delete id="deleteCustomerByIds">
+         delete from customer where customerId in
+        <foreach item="id" collection="array" index="no" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateCustomer">
+        update customer set customerName=#{customerName},customerUserId=#{customerUserId},
+        customerCreateId=#{customerCreateId},customerSourse=#{customerSourse},
+        customerIndustry=#{customerIndustry},customerPhone=#{customerPhone},
+        customerAddress=#{customerAddress},customerDate=#{customerDate}
+        where customerId=#{customerId}
+    </update>
+    <select id="seloneCustomer" resultType="com.swjd.bean.Customer">
+        select * from customer where customerId=#{CustomerId};
+    </select>
+
 </mapper>

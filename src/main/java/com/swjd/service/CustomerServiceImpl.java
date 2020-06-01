@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService{
     public List<Customer> findForSearch(Map<String, String> map) {
         //把参数拿出来-业务逻辑操作
         //获取当前是第几页
-        String pageNum=map.get("page");//规定page是当前页数
+        String pageNum=map.get("pageNum");//规定page是当前页数
         //获取每页的条数
         String rows=map.get("rows");//规定rows是每页条数
         int row=Integer.parseInt(rows);//string转为int
@@ -42,5 +42,30 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public int findForCount(Map<String, String> map) {
         return customerMapper.findForCount(map);
+    }
+
+    @Override
+    public int addCustomer(Customer customer) {
+        return customerMapper.addCustomer(customer);
+    }
+
+    @Override
+    public int deleteCustomer(int CustomerId) {
+        return 0;
+    }
+
+    @Override
+    public int deleteCustomerByIds(String[] ids) {
+        return customerMapper.deleteCustomerByIds(ids);
+    }
+
+    @Override
+    public int updateCustomer(Customer customer) {
+        return customerMapper.updateCustomer(customer);
+    }
+
+    @Override
+    public Customer seloneCustomer(int CustomerId) {
+        return customerMapper.seloneCustomer(CustomerId);
     }
 }
